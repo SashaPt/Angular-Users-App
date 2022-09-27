@@ -1,0 +1,66 @@
+<table>
+  <tr>
+    <td colspan="3">User's name:</td>
+    <td>{{ user.name }}</td>
+  </tr>
+  <tr>
+    <td colspan="3">User's username:</td>
+    <td>{{ user.username }}</td>
+  </tr>
+  <tr>
+    <td colspan="3">User's email:</td>
+    <td>{{ user.email }}</td>
+  </tr>
+  <tr>
+    <td rowspan="6">User's address:</td>
+    <td colspan="2">street:</td>
+    <td>{{ user.address.street }}</td>
+  </tr>
+  <tr>
+    <td colspan="2">suite:</td>
+    <td>{{ user.address.suite }}</td>
+  </tr>
+  <tr>
+    <td colspan="2">city:</td>
+    <td>{{ user.address.city }}</td>
+  </tr>
+  <tr>
+    <td colspan="2">zipcode:</td>
+    <td>{{ user.address.zipcode }}</td>
+  </tr>
+  <tr>
+    <td rowspan="2">geo:</td>
+    <td>lat:</td>
+    <td>{{ user.address.geo.lat }}</td>
+  </tr>
+  <tr>
+    <td>lng:</td>
+    <td>{{ user.address.geo.lng }}</td>
+  </tr>
+  <tr>
+    <td colspan="3">User's phone:</td>
+    <td>{{ user.phone }}</td>
+  </tr>
+  <tr>
+    <td colspan="3">User's website:</td>
+    <td>{{ user.website }}</td>
+  </tr>
+  <tr>
+    <td rowspan="3">User's company:</td>
+    <td colspan="2">name:</td>
+    <td>{{ user.company.name }}</td>
+  </tr>
+  <tr>
+    <td colspan="2">catchPhrase:</td>
+    <td>{{ user.company.catchPhrase }}</td>
+  </tr>
+  <tr>
+    <td colspan="2">bs:</td>
+    <td>{{ user.company.bs }}</td>
+  </tr>
+</table>
+<button (click)="getPostsByUserId(user.id)">GET POSTS</button>
+<div>
+    <app-user-post [post]="post" *ngFor="let post of posts"></app-user-post>
+</div>
+
