@@ -59,8 +59,17 @@
     <td>{{ user.company.bs }}</td>
   </tr>
 </table>
-<button (click)="getPostsByUserId(user.id)">GET POSTS</button>
-<div>
-    <app-user-post [post]="post" *ngFor="let post of posts"></app-user-post>
+<div class="button-container">
+  <button (click)="getPosts(user.id)">GET POSTS</button>
+  <button (click)="getTodos(user.id)">GET TODOS</button>
+  <button (click)="getAlbums(user.id)">GET ALBUMS</button>
 </div>
-
+<div class="user-posts-container" *ngIf="isPostsShow">
+  <app-user-post [post]="post" *ngFor="let post of posts"></app-user-post>
+</div>
+<div class="user-todos-container" *ngIf="isTodosShow">
+  <app-user-todo [todo]="todo" *ngFor="let todo of todos"></app-user-todo>
+</div>
+<div class="user-albums-container" *ngIf="isAlbumsShow">
+  <app-user-album [album]="album" *ngFor="let album of albums"></app-user-album>
+</div>

@@ -27,3 +27,28 @@ export interface IPost {
   title: string;
   body: string;
 }
+export interface IComment {
+  postId: number;
+  id: number;
+  name: string;
+  email: string;
+  body: string;
+}
+export interface ITodo {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+}
+export interface IAlbum {
+  userId: number;
+  id: number;
+  title: string;
+}
+export interface IPhoto {
+  albumId: number;
+  id: number;
+  title: string;
+  url: string;
+  thumbnailUrl: string;
+}

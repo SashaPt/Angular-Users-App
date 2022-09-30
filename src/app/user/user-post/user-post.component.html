@@ -1,5 +1,16 @@
-<div>
-    <p>Post N: {{post.id}}</p>
-    <p>Title: <b>{{post.title}}</b></p>
-    <p>Description: {{post.body}}</p>
+<div class="post-item">
+  <p>Post N: {{ post.id }}</p>
+  <p>
+    Title: <b>{{ post.title }}</b>
+  </p>
+  <p>Description: {{ post.body }}</p>
+  <button (click)="getComments(post.id)">
+    {{ isShow ? "HIDE COMMENTS" : "SHOW COMMENTS" }}
+  </button>
+  <div *ngIf="isShow">
+    <app-user-comment
+      [comment]="comment"
+      *ngFor="let comment of comments"
+    ></app-user-comment>
+  </div>
 </div>

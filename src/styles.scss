@@ -3,3 +3,15 @@
     padding: 0px;
     box-sizing: border-box;
 }
+body {
+    background-image: linear-gradient(rgba(180, 180, 180, 0.1),  rgba(180, 180, 180, 0.1)),
+    url('./assets/img2.jpg');
+}
+button {
+    background-color: rgb(204, 204, 204);
+    border-radius: 6px;
+    padding: 7px;
+    &:hover {
+      cursor: pointer;
+    }
+  }

@@ -1,0 +1,18 @@
+<div class="album-item">
+  <p>
+    {{ album.id + ")" }} <b>{{ album.title }}</b>
+  </p>
+  <button (click)="getPhotos(album.id)">
+    {{ isShow ? "HIDE PHOTOS" : "SHOW PHOTOS" }}
+  </button>
+  <div class="selected-photo">
+    <app-user-photo [photo]="photoItem" *ngIf="photoItem && isShow"></app-user-photo>
+  </div>
+  <div class="user-photo-container" *ngIf="isShow">
+    <app-user-photo
+      [photo]="photo"
+      *ngFor="let photo of photos"
+      (click)="photoItem = photo"
+    ></app-user-photo>
+  </div>
+</div>

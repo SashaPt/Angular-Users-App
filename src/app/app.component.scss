@@ -1,20 +1,27 @@
 .users-list-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  app-user-item {
+    width: 200px;
+    height: 80px;
+    background-color: rgba(135, 207, 235, 0.8);
+    padding: 10px;
+    margin: 7px;
+    font-size: 19px;
     display: flex;
-    flex-wrap: wrap;
-    app-user-item {
-        width: 200px;
-        height: 100px;
-        padding: 10px;
-        margin: 7px;
-        font-size: 19px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        border: 2px solid red;
-        &:hover {
-            background-color: pink;
-            cursor: pointer;
-        }
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+    &:hover {
+      background-color: rgba(30, 30, 255, 0.8);
+      color: white;
+      cursor: pointer;
     }
+  }
+}
+.user-info {
+  display: flex;
+  justify-content: center;
 }

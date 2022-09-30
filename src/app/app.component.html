@@ -1,8 +1,10 @@
 <div class="users-list-container">
-  <app-user-item [user]="user" *ngFor="let user of users"
-  (click)="getUserById(user.id)"
+  <app-user-item
+    [user]="user"
+    *ngFor="let user of users"
+    (click)="getUserById(user.id)"
   ></app-user-item>
 </div>
-<div>
-  <app-user-info *ngIf="selectedUser" [user]="selectedUser" [posts]="posts" (onClick)="getPostsByUserId(selectedUser.id)"></app-user-info>
+<div class="user-info">
+  <app-user-info *ngIf="selectedUser" [user]="selectedUser"></app-user-info>
 </div>

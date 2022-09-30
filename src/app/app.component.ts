@@ -9,8 +9,7 @@ import { UserService } from './shared/service/user.service';
 })
 export class AppComponent implements OnInit {
   users: IUser[] = [];
-  selectedUser!: IUser;
-  posts: IPost[] = [];
+  selectedUser!: IUser | null;
 
   constructor(private userService: UserService) {}
 
@@ -24,15 +23,9 @@ export class AppComponent implements OnInit {
     });
   }
   getUserById(id: number) {
-    this.posts = []
+    this.selectedUser = null;
     return this.userService.getUserById(id).subscribe((user) => {
       this.selectedUser = user;
-    })
-  }
-  getPostsByUserId(userId: number) {
-    return this.userService.getPostsByUserId(userId).subscribe((posts) => {
-      this.posts = posts;
     });
   }
-  
 }

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { IPost, IUser } from 'src/app/shared/model/user.model';
+import { IAlbum, IPost, ITodo, IUser } from 'src/app/shared/model/user.model';
 import { UserService } from 'src/app/shared/service/user.service';
 
 @Component({
@@ -9,14 +9,45 @@ import { UserService } from 'src/app/shared/service/user.service';
 })
 export class UserInfoComponent implements OnInit {
   @Input() user!: IUser;
-  @Input() posts!: IPost[];
-  @Output() onClick = new EventEmitter<number>();
+  posts: IPost[] = [];
+  todos: ITodo[] = [];
+  albums: IAlbum[] = [];
+  isPostsShow: boolean = false;
+  isTodosShow: boolean = false;
+  isAlbumsShow: boolean = false;
 
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {}
 
-  getPostsByUserId(userId: number) {
-    this.onClick.emit(userId)
+  getPosts(id: number) {
+    this.isPostsShow = true;
+    this.isTodosShow = false;
+    this.isAlbumsShow = false;
+    return this.userService
+      .getPostsByUserId(this.user.id)
+      .subscribe((posts) => {
+        this.posts = posts;
+      });
+  }
+  getTodos(id: number) {
+    this.isPostsShow = false;
+    this.isTodosShow = true;
+    this.isAlbumsShow = false;
+    return this.userService
+      .getTodosByUserId(this.user.id)
+      .subscribe((todos) => {
+        this.todos = todos;
+      });
+  }
+  getAlbums(id: number) {
+    this.isPostsShow = false;
+    this.isTodosShow = false;
+    this.isAlbumsShow = true;
+    return this.userService
+      .getAlbumsByUserId(this.user.id)
+      .subscribe((albums) => {
+        this.albums = albums;
+      });
   }
 }

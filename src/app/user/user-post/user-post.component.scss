@@ -1,6 +1,10 @@
-div {
-    margin: 7px;
-    padding: 7px;
-    border: 1px solid orange;
-    border-radius: 4px;
+.post-item {
+  width: 400px;
+  height: 100%;
+  padding: 7px;
+  background-color: rgba(135, 207, 235, 0.6);
+  border-radius: 8px;
+}
+button {
+  margin: 7px 0px;
 }
